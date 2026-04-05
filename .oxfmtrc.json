@@ -1,0 +1,44 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oxc-project/oxc/main/npm/oxfmt/configuration_schema.json",
+  "useTabs": false,
+  "tabWidth": 2,
+  "printWidth": 100,
+  "singleQuote": false,
+  "jsxSingleQuote": false,
+  "quoteProps": "as-needed",
+  "trailingComma": "none",
+  "semi": false,
+  "arrowParens": "always",
+  "bracketSameLine": false,
+  "bracketSpacing": true,
+  "singleAttributePerLine": false,
+  "experimentalSortImports": {
+    "groups": [
+      ["side_effect"],
+      ["builtin", "external"],
+      ["internal"],
+      ["parent", "sibling", "index"],
+      [
+        "type-builtin",
+        "type-external",
+        "type-internal",
+        "type-parent",
+        "type-sibling",
+        "type-index"
+      ]
+    ]
+  },
+  "experimentalTailwindcss": {
+    "stylesheet": "./app/styles/tailwind.css",
+    "attributes": ["class", "className"],
+    "functions": ["clsx", "cn", "cva"]
+  },
+
+  "ignorePatterns": [
+    "**/node_modules",
+    "**/build/**",
+    "**/dist/**",
+    "**/.react-router/**",
+    "app/types/prisma/**"
+  ]
+}
