@@ -1,14 +1,12 @@
-import { z } from "zod";
+import { z } from "zod/v4";
 
 const procSchema = z.object({
-	shell: z.string(),
-	autostart: z.boolean(),
+  shell: z.string(),
+  autostart: z.boolean(),
 });
 
-const configSchema = z.object({
-	procs: z.record(z.string(), procSchema),
+export const schema = z.object({
+  procs: z.record(z.string(), procSchema),
 });
 
-export type Config = z.infer<typeof configSchema>;
-
-export const schema = () => configSchema;
+export type Config = z.infer<typeof schema>;
