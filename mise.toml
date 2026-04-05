@@ -20,3 +20,11 @@ pkl = "0.31.1"
 [tasks.amp]
 run = "amp --no-ide"
 description = "Start the Amp CLI without IDE connection"
+
+[tasks.dev]
+run = "bun run --watch src/index.tsx"
+description = "Start the dev server with watch mode"
+
+[tasks."schema:generate"]
+run = "bun run src/scripts/generate-schema.ts"
+description = "Generate JSON schema from Zod config schema"

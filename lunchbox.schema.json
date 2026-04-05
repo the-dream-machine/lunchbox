@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "procs": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "shell": {
+            "type": "string",
+            "description": "The shell command to run the process"
+          },
+          "autostart": {
+            "type": "boolean",
+            "description": "Whether to start the process automatically on launch"
+          }
+        },
+        "required": [
+          "shell",
+          "autostart"
+        ],
+        "additionalProperties": false
+      },
+      "description": "Map of managed processes"
+    }
+  },
+  "required": [
+    "procs"
+  ],
+  "additionalProperties": false
+}
