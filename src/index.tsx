@@ -1,16 +1,18 @@
-import { createCliRenderer, TextAttributes } from "@opentui/core";
+import { createCliRenderer } from "@opentui/core";
 import { createRoot } from "@opentui/react";
+import { Dock } from "./components/Dock";
+import { Page } from "./components/Page";
 
-function App() {
+const App = () => {
   return (
-    <box alignItems="center" justifyContent="center" flexGrow={1}>
-      <box justifyContent="center" alignItems="flex-end">
-        <ascii-font font="tiny" text="OpenTUI" />
-        <text attributes={TextAttributes.DIM}>What will you build?</text>
-      </box>
+    <box flexDirection="row" width="100%" height="100%">
+      <Dock />
+      <Page />
     </box>
   );
-}
+};
 
-const renderer = await createCliRenderer();
+const renderer = await createCliRenderer({
+  screenMode: "alternate-screen",
+});
 createRoot(renderer).render(<App />);
