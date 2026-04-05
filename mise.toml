@@ -22,7 +22,7 @@ run = "amp --no-ide"
 description = "Start the Amp CLI without IDE connection"
 
 [tasks.dev]
-run = "bun run --watch src/index.tsx"
+run = "SHOW_CONSOLE=true bun run --watch src/index.tsx"
 description = "Start the dev server with watch mode"
 
 [tasks."schema:generate"]
