@@ -5,6 +5,7 @@ import type { resolveConfig } from "./actors/resolveConfig";
 export type LaunchMachineContext = {
   configPath?: OutputFrom<typeof resolveConfig>;
   config?: OutputFrom<typeof readConfig>;
+  activeProc?: string;
 };
 
 export type LaunchMachineEvents =
@@ -22,7 +23,11 @@ export type LaunchMachineEvents =
     })
   | (ErrorActorEvent<Error> & {
       type: "xstate.error.actor.0.launchMachine.readingConfig";
-    });
+    })
+
+  // Proc events
+  | { type: "proc.click"; name: string }
+  | { type: "proc.select"; name: string };
 
 export interface LaunchMachineActionArgs {
   context: LaunchMachineContext;

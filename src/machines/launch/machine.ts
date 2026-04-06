@@ -4,6 +4,7 @@ import { resolveConfig } from "./actors/resolveConfig";
 import { readConfig } from "./actors/readConfig";
 import { assignConfigPath } from "./actions/assignConfigPath";
 import { assignConfig } from "./actions/assignConfig";
+import { assignActiveProc } from "./actions/assignActiveProc";
 import { logEvent } from "./actions/logEvent";
 
 export const launchMachine = setup({
@@ -15,6 +16,7 @@ export const launchMachine = setup({
   actions: {
     "assign config path": assign(assignConfigPath),
     "assign config": assign(assignConfig),
+    "assign active proc": assign(assignActiveProc),
     "log event": logEvent,
   },
 }).createMachine({
@@ -51,7 +53,12 @@ export const launchMachine = setup({
       },
     },
 
-    idle: {},
+    idle: {
+      on: {
+        "proc.click": { actions: ["assign active proc"] },
+        "proc.select": { actions: ["assign active proc"] },
+      },
+    },
 
     error: {},
   },
