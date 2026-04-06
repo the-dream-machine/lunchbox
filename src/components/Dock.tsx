@@ -6,7 +6,7 @@ export const Dock = () => {
   );
   console.log("🚀 config ~ :", config);
 
-  // const procs = Object.keys(config?.procs ?? {});
+  const procs = Object.keys(config?.procs ?? {});
 
   return (
     <box
@@ -22,9 +22,9 @@ export const Dock = () => {
     >
       <text>🍱 Dock</text>
       <box flexDirection="column" marginTop={1}>
-        {/*{procs.map((name) => (
+        {procs.map((name) => (
           <text key={name}>{name}</text>
-        ))}*/}
+        ))}
       </box>
     </box>
   );

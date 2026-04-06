@@ -1,0 +1,9 @@
+#:schema ./lunchbox.schema.json
+
+[procs.vite]
+shell = "mise vite"
+autostart = true
+
+[procs.inngest]
+shell = "mise inngest"
+autostart = true

@@ -1,9 +1,10 @@
-import { setup, assign, log } from "xstate";
+import { setup, assign } from "xstate";
 import type { LaunchMachineContext, LaunchMachineEvents } from "./types";
 import { resolveConfig } from "./actors/resolveConfig";
 import { readConfig } from "./actors/readConfig";
 import { assignConfigPath } from "./actions/assignConfigPath";
 import { assignConfig } from "./actions/assignConfig";
+import { logEvent } from "./actions/logEvent";
 
 export const launchMachine = setup({
   types: {} as {
@@ -14,6 +15,7 @@ export const launchMachine = setup({
   actions: {
     "assign config path": assign(assignConfigPath),
     "assign config": assign(assignConfig),
+    "log event": logEvent,
   },
 }).createMachine({
   id: "launchMachine",
@@ -28,6 +30,7 @@ export const launchMachine = setup({
           target: "readingConfig",
         },
         onError: {
+          actions: ["log event"],
           target: "error",
         },
       },
@@ -42,17 +45,14 @@ export const launchMachine = setup({
           target: "idle",
         },
         onError: {
+          actions: ["log event"],
           target: "error",
         },
       },
     },
 
-    idle: {
-      type: "final",
-    },
+    idle: {},
 
-    error: {
-      type: "final",
-    },
+    error: {},
   },
 });
