@@ -23,7 +23,6 @@ const walkUp = async (from: string): Promise<string | null> => {
 
 export const resolve = async (customPath?: string): Promise<string> => {
   if (customPath) {
-    console.log("🚀 customPath ~ :", customPath);
     const file = Bun.file(customPath);
     if (await file.exists()) return customPath;
     throw new Error(`Config file not found: ${customPath}`);

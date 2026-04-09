@@ -1,12 +1,12 @@
 import type { LaunchMachineActionArgs, LaunchMachineContext } from "../types";
 
-export const assignActiveProc = ({
+export const assignActiveProcess = ({
   event,
 }: LaunchMachineActionArgs): Partial<LaunchMachineContext> => {
   switch (event.type) {
-    case "proc.click":
-    case "proc.select":
-      return { activeProc: event.name };
+    case "process.click":
+    case "process.select":
+      return { activeProcess: event.name };
 
     default:
       return {};

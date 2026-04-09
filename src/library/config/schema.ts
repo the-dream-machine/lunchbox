@@ -1,6 +1,6 @@
 import { z } from "zod/v4";
 
-export const procSchema = z.object({
+export const processSchema = z.object({
   shell: z.string().describe("The shell command to run the process."),
   autostart: z
     .boolean()
@@ -8,7 +8,7 @@ export const procSchema = z.object({
 });
 
 export const schema = z.object({
-  procs: z.record(z.string(), procSchema).describe("Map of managed processes."),
+  processes: z.record(z.string(), processSchema).describe("Map of managed processes."),
 });
 
 export type Config = z.infer<typeof schema>;
