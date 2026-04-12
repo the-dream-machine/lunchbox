@@ -8,14 +8,14 @@ pin = true
 npm.package_manager = "bun"
 
 [tools]
-bun = "1.3.11"
-hk = "1.40.0"
+bun = "1.3.12"
+hk = "1.42.0"
 node = "25.9.0"
 pkl = "0.31.1"
-"npm:@sourcegraph/amp" = "0.0.1775318725-g13b193"
-"npm:opencode-ai" = "1.3.13"
-"npm:oxfmt" = "0.43.0"
-"npm:oxlint" = "1.58.0"
+"npm:@sourcegraph/amp" = "0.0.1776010036-g035c80"
+"npm:opencode-ai" = "1.4.3"
+"npm:oxfmt" = "0.44.0"
+"npm:oxlint" = "1.59.0"
 
 [tasks.amp]
 run = "amp --no-ide"
@@ -28,3 +28,11 @@ description = "Start the dev server with watch mode"
 [tasks."schema:generate"]
 run = "bun run scripts/generate-schema.ts"
 description = "Generate JSON schema from Zod config schema"
+
+[tasks."update:bun"]
+run = "bun update --interactive"
+description = "Update bun packages"
+
+[tasks."update:mise"]
+run = "mise upgrade --interactive --bump"
+description = "Update mise tools"
