@@ -1,13 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/oxc-project/oxc/main/npm/oxlint/configuration_schema.json",
   "plugins": ["react", "import", "typescript", "promise", "oxc"],
-  "ignorePatterns": [
-    ".vscode/**",
-    ".zed/**",
-    "build/**",
-    "dist/**",
-    "node_modules"
-  ],
+  "ignorePatterns": [".vscode/**", ".zed/**", "build/**", "dist/**", "node_modules"],
   "rules": {
     "getter-return": "error",
     "no-async-promise-executor": "error",

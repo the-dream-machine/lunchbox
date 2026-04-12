@@ -1,30 +1,30 @@
-import type { DoneActorEvent, ErrorActorEvent, OutputFrom } from "xstate";
-import type { readConfig } from "./actors/readConfig";
-import type { resolveConfig } from "./actors/resolveConfig";
+import type { readConfig } from "./actors/readConfig"
+import type { resolveConfig } from "./actors/resolveConfig"
+import type { DoneActorEvent, ErrorActorEvent, OutputFrom } from "xstate"
 
 export type LaunchMachineContext = {
-  configPath?: OutputFrom<typeof resolveConfig>;
-  config?: OutputFrom<typeof readConfig>;
-};
+  configPath?: OutputFrom<typeof resolveConfig>
+  config?: OutputFrom<typeof readConfig>
+}
 
 export type LaunchMachineEvents =
   // Done events
   | (DoneActorEvent<OutputFrom<typeof resolveConfig>> & {
-      type: "xstate.done.actor.0.launchMachine.resolvingConfig";
+      type: "xstate.done.actor.0.launchMachine.resolvingConfig"
     })
   | (DoneActorEvent<OutputFrom<typeof readConfig>> & {
-      type: "xstate.done.actor.0.launchMachine.readingConfig";
+      type: "xstate.done.actor.0.launchMachine.readingConfig"
     })
 
   // Error events
   | (ErrorActorEvent<Error> & {
-      type: "xstate.error.actor.0.launchMachine.resolvingConfig";
+      type: "xstate.error.actor.0.launchMachine.resolvingConfig"
     })
   | (ErrorActorEvent<Error> & {
-      type: "xstate.error.actor.0.launchMachine.readingConfig";
-    });
+      type: "xstate.error.actor.0.launchMachine.readingConfig"
+    })
 
 export interface LaunchMachineActionArgs {
-  context: LaunchMachineContext;
-  event: LaunchMachineEvents;
+  context: LaunchMachineContext
+  event: LaunchMachineEvents
 }

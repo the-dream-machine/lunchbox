@@ -1,7 +1,8 @@
-import { z } from "zod/v4";
-import { schema } from "../src/library/config/schema";
+import { z } from "zod/v4"
 
-const jsonSchema = z.toJSONSchema(schema, { target: "draft-07" });
-const output = JSON.stringify(jsonSchema, null, 2);
+import { schema } from "../src/library/config/schema"
 
-await Bun.write("lunchbox.schema.json", output);
+const jsonSchema = z.toJSONSchema(schema, { target: "draft-07" })
+const output = JSON.stringify(jsonSchema, null, 2)
+
+await Bun.write("lunchbox.schema.json", output)

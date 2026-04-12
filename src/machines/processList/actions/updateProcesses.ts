@@ -1,16 +1,13 @@
-import type {
-  ProcessListMachineContext,
-  ProcessListMachineActionArgs,
-} from "../types";
+import type { ProcessListMachineContext, ProcessListMachineActionArgs } from "../types"
 
 export const updateProcesses = ({
-  event,
+  event
 }: ProcessListMachineActionArgs): Partial<ProcessListMachineContext> => {
   if (event.type !== "processes.update") {
-    return {};
+    return {}
   }
 
   return {
-    processes: event.processes,
-  };
-};
+    processes: event.processes
+  }
+}

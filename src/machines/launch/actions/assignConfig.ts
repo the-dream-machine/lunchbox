@@ -1,13 +1,11 @@
-import type { LaunchMachineActionArgs, LaunchMachineContext } from "../types";
+import type { LaunchMachineActionArgs, LaunchMachineContext } from "../types"
 
-export const assignConfig = ({
-  event,
-}: LaunchMachineActionArgs): Partial<LaunchMachineContext> => {
+export const assignConfig = ({ event }: LaunchMachineActionArgs): Partial<LaunchMachineContext> => {
   switch (event.type) {
     case "xstate.done.actor.0.launchMachine.readingConfig":
-      return { config: event.output };
+      return { config: event.output }
 
     default:
-      return {};
+      return {}
   }
-};
+}

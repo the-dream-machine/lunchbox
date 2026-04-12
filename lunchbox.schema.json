@@ -19,17 +19,12 @@
             "description": "Whether to start the process automatically on launch."
           }
         },
-        "required": [
-          "shell",
-          "autostart"
-        ],
+        "required": ["shell", "autostart"],
         "additionalProperties": false
       },
       "description": "Map of managed processes."
     }
   },
-  "required": [
-    "processes"
-  ],
+  "required": ["processes"],
   "additionalProperties": false
 }
