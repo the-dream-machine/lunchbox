@@ -1,20 +1,7 @@
-export interface Process {
-  name: string
-  shell: string
-  autostart: boolean
-}
-
-export interface ProcessListMachineContext {
-  processes: Process[]
-}
+import type { Config } from "~/src/library/config/schema"
 
 export interface ProcessListMachineInput {
-  processes: Process[]
+  config: Config
 }
 
-export type ProcessListMachineEvents = { type: "processes.update"; processes: Process[] }
-
-export interface ProcessListMachineActionArgs {
-  context: ProcessListMachineContext
-  event: ProcessListMachineEvents
-}
+export interface ProcessListMachineContext extends ProcessListMachineInput {}

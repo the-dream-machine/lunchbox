@@ -3,12 +3,16 @@ import { ProcessListContent } from "./ProcessListContent"
 import { ProcessListMachineContext } from "./ProcessListMachineProvider"
 
 export const ProcessList = () => {
-  const processes = LaunchMachineContext.useSelector(
-    (state) => state.context.config?.processes ?? []
+  const config = LaunchMachineContext.useSelector(
+    (state) => state.context.config
   )
 
+  if (!config) {
+    return null
+  }
+
   return (
-    <ProcessListMachineContext.Provider options={{ input: { processes } }}>
+    <ProcessListMachineContext.Provider options={{ input: { config } }}>
       <ProcessListContent />
     </ProcessListMachineContext.Provider>
   )

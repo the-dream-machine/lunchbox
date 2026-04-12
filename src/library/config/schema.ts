@@ -13,3 +13,4 @@ export const schema = z.object({
 })
 
 export type Config = z.infer<typeof schema>
+export type Process = Config["processes"][number]

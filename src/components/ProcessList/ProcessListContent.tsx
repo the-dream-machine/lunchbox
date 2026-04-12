@@ -2,7 +2,7 @@ import { ProcessListItem } from "./ProcessListItem"
 import { ProcessListMachineContext } from "./ProcessListMachineProvider"
 
 export const ProcessListContent = () => {
-  const processes = ProcessListMachineContext.useSelector((state) => state.context.processes)
+  const processes = ProcessListMachineContext.useSelector((state) => state.context.config.processes)
 
   return (
     <box
