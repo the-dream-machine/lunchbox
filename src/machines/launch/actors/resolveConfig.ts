@@ -1,4 +1,5 @@
-import { fromPromise } from "xstate";
-import { config } from "~src/library/config";
+import { fromPromise } from "xstate"
 
-export const resolveConfig = fromPromise(async () => config.resolve());
+import { config } from "~/src/library/config"
+
+export const resolveConfig = fromPromise(async () => config.resolve())

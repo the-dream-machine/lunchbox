@@ -25,6 +25,30 @@ description = "Start the Amp CLI without IDE connection"
 run = "SHOW_CONSOLE=true bun run --watch src/index.tsx"
 description = "Start the dev server with watch mode"
 
+[tasks.fix]
+run = { tasks = ["fix:lint", "fix:format"] }
+description = "Automatically sort imports and format the codebase"
+
+[tasks."fix:format"]
+run = "oxfmt --write ."
+description = "Fix formatting issues"
+
+[tasks."fix:lint"]
+run = "oxlint --fix"
+description = "Fix linting issues"
+
+[tasks.lint]
+run = [{ tasks = ["oxlint", "typecheck", "oxfmt"] }]
+description = "Check lints, types, and formatting"
+
+[tasks.oxfmt]
+run = "oxfmt --check ."
+description = "Check formatting (read-only)"
+
+[tasks.oxlint]
+run = "oxlint --type-aware"
+description = "Check lints (with type-awareness)"
+
 [tasks."schema:generate"]
 run = "bun run scripts/generate-schema.ts"
 description = "Generate JSON schema from Zod config schema"

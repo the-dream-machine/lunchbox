@@ -1,10 +1,8 @@
-import { ProcessListMachineContext } from "./ProcessListMachineProvider";
-import { ProcessListItem } from "./ProcessListItem";
+import { ProcessListItem } from "./ProcessListItem"
+import { ProcessListMachineContext } from "./ProcessListMachineProvider"
 
 export const ProcessListContent = () => {
-  const processes = ProcessListMachineContext.useSelector(
-    (state) => state.context.processes
-  );
+  const processes = ProcessListMachineContext.useSelector((state) => state.context.processes)
 
   return (
     <box
@@ -21,12 +19,9 @@ export const ProcessListContent = () => {
       <text>🍱 Lunchbox</text>
       <box flexDirection="column" marginTop={1}>
         {processes.map((process) => (
-          <ProcessListItem
-            key={process.name}
-            name={process.name}
-          />
+          <ProcessListItem key={process.name} name={process.name} />
         ))}
       </box>
     </box>
-  );
-};
+  )
+}

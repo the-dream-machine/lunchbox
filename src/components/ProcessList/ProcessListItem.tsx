@@ -1,11 +1,7 @@
 interface Props {
-  name: string;
+  name: string
 }
 
 export const ProcessListItem = ({ name }: Props) => {
-  return (
-    <text fg="#888888">
-      {name}
-    </text>
-  );
-};
+  return <text fg="#888888">{name}</text>
+}

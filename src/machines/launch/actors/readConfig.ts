@@ -1,16 +1,16 @@
-import { fromPromise } from "xstate";
-import { config } from "~src/library/config";
-import type { LaunchMachineContext } from "../types";
-import invariant from "tiny-invariant";
+import invariant from "tiny-invariant"
+import { fromPromise } from "xstate"
 
-export const readConfig = fromPromise(
-  async ({ input }: { input: LaunchMachineContext }) => {
-    const { configPath } = input;
-    invariant(configPath, "configPath is not defined");
+import { config } from "~/src/library/config"
 
-    const file = Bun.file(configPath);
-    const toml = await file.text();
+import type { LaunchMachineContext } from "../types"
 
-    return config.parse(toml);
-  },
-);
+export const readConfig = fromPromise(async ({ input }: { input: LaunchMachineContext }) => {
+  const { configPath } = input
+  invariant(configPath, "configPath is not defined")
+
+  const file = Bun.file(configPath)
+  const toml = await file.text()
+
+  return config.parse(toml)
+})

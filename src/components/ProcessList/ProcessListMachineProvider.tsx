@@ -1,4 +1,5 @@
-import { createActorContext } from "@xstate/react";
-import { processListMachine } from "../../machines/processList/machine";
+import { createActorContext } from "@xstate/react"
 
-export const ProcessListMachineContext = createActorContext(processListMachine);
+import { processListMachine } from "~/src/machines/processList/machine"
+
+export const ProcessListMachineContext = createActorContext(processListMachine)

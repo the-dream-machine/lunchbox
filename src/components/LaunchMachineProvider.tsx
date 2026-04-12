@@ -1,4 +1,5 @@
-import { createActorContext } from "@xstate/react";
-import { launchMachine } from "~src/machines/launch/machine";
+import { createActorContext } from "@xstate/react"
 
-export const LaunchMachineContext = createActorContext(launchMachine);
+import { launchMachine } from "~/src/machines/launch/machine"
+
+export const LaunchMachineContext = createActorContext(launchMachine)
