@@ -2,9 +2,15 @@ import type { KeyEvent } from "@opentui/core";
 import type { ActorRefFrom } from "xstate";
 import type { launchMachine } from "../launch/machine";
 
+export interface Process {
+  name: string;
+  shell: string;
+  autostart: boolean;
+}
+
 export interface ProcessListMachineContext {
-  /** Array of process names to navigate through */
-  processes: string[];
+  /** Array of processes to navigate through */
+  processes: Process[];
   /** Currently focused index in the list */
   focusedIndex: number;
   /** The currently selected process (confirmed selection) */
@@ -16,8 +22,8 @@ export interface ProcessListMachineContext {
 }
 
 export interface ProcessListMachineInput {
-  /** Initial array of process names */
-  processes: string[];
+  /** Initial array of processes */
+  processes: Process[];
   /** Initial focused index (defaults to 0) */
   initialIndex?: number;
   /** Reference to parent launch machine */
@@ -38,7 +44,7 @@ export type ProcessListMachineEvents =
   | { type: "select" }
   | { type: "confirm" }
   // List management events
-  | { type: "processes.update"; processes: string[] };
+  | { type: "processes.update"; processes: Process[] };
 
 export interface ProcessListMachineActionArgs {
   context: ProcessListMachineContext;

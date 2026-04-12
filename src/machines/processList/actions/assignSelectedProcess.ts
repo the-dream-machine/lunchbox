@@ -12,8 +12,8 @@ export const assignSelectedProcess = ({
   switch (event.type) {
     case "select":
     case "confirm": {
-      const selectedProcess = processes[focusedIndex];
-      return selectedProcess ? { selectedProcess } : {};
+      const process = processes[focusedIndex];
+      return process ? { selectedProcess: process.name } : {};
     }
 
     default:

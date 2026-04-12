@@ -16,7 +16,7 @@ export const updateProcesses = ({
 
   // Try to maintain focus on the same process name if it still exists
   const newIndex = currentFocusedProcess
-    ? newProcesses.indexOf(currentFocusedProcess)
+    ? newProcesses.findIndex((p) => p.name === currentFocusedProcess.name)
     : -1;
 
   return {

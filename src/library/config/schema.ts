@@ -8,7 +8,12 @@ export const processSchema = z.object({
 });
 
 export const schema = z.object({
-  processes: z.record(z.string(), processSchema).describe("Map of managed processes."),
+  processes: z
+    .record(z.string(), processSchema)
+    .transform((record) =>
+      Object.entries(record).map(([name, proc]) => ({ name, ...proc }))
+    )
+    .describe("Map of managed processes."),
 });
 
 export type Config = z.infer<typeof schema>;

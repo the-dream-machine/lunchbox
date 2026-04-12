@@ -73,11 +73,11 @@ export const ProcessListContent = ({
     >
       <text>🍱 Lunchbox</text>
       <box flexDirection="column" marginTop={1}>
-        {processes.map((name, index) => (
+        {processes.map((process, index) => (
           <ProcessListItem
-            key={name}
-            name={name}
-            isActive={name === activeProcess}
+            key={process.name}
+            name={process.name}
+            isActive={process.name === activeProcess}
             isFocused={index === focusedIndex}
           />
         ))}
