@@ -2,7 +2,8 @@ import { ProcessListItem } from "./ProcessListItem"
 import { ProcessListMachineContext } from "./ProcessListMachineProvider"
 
 export const ProcessListContent = () => {
-  const processes = ProcessListMachineContext.useSelector((state) => state.context.config.processes)
+  const config = ProcessListMachineContext.useSelector((state) => state.context.config)
+  const processes = config?.processes
 
   return (
     <box
@@ -18,7 +19,7 @@ export const ProcessListContent = () => {
     >
       <text>🍱 Lunchbox</text>
       <box flexDirection="column" marginTop={1}>
-        {processes.map((process) => (
+        {processes?.map((process) => (
           <ProcessListItem key={process.name} name={process.name} />
         ))}
       </box>
