@@ -1,9 +1,19 @@
+import { useKeyboard } from "@opentui/react"
+
 import { ProcessListItem } from "./ProcessListItem"
 import { ProcessListMachineContext } from "./ProcessListMachineProvider"
 
 export const ProcessListContent = () => {
+  const actorRef = ProcessListMachineContext.useActorRef()
   const config = ProcessListMachineContext.useSelector((state) => state.context.config)
+  const selectedIndex = ProcessListMachineContext.useSelector(
+    (state) => state.context.selectedIndex
+  )
   const processes = config?.processes
+
+  useKeyboard((event) => {
+    actorRef.send({ type: "key.press", params: event })
+  })
 
   return (
     <box
@@ -19,8 +29,12 @@ export const ProcessListContent = () => {
     >
       <text>🍱 Lunchbox</text>
       <box flexDirection="column" marginTop={1}>
-        {processes?.map((process) => (
-          <ProcessListItem key={process.name} name={process.name} />
+        {processes?.map((process, index) => (
+          <ProcessListItem
+            key={process.name}
+            name={process.name}
+            selected={index === selectedIndex}
+          />
         ))}
       </box>
     </box>

@@ -7,3 +7,7 @@ autostart = true
 [processes.inngest]
 shell = "mise inngest"
 autostart = true
+
+[processes.dev]
+shell = "mise dev"
+autostart = true

@@ -1,18 +1,28 @@
-import { setup } from "xstate"
+import { assign, setup } from "xstate"
 
-import type { ProcessListMachineContext, ProcessListMachineInput } from "./types"
+import { assignNavigation } from "./actions/assignNavigation"
+
+import type { ProcessListMachineContext, ProcessListMachineEvents } from "./types"
 
 export const processListMachine = setup({
   types: {} as {
     context: ProcessListMachineContext
-    input: ProcessListMachineInput
+    events: ProcessListMachineEvents
   },
-  actions: {}
+  actions: {
+    "assign navigation": assign(assignNavigation)
+  }
 }).createMachine({
   id: "processListMachine",
   initial: "idle",
-  context: ({ input }) => ({ ...input }),
+  context: ({ input }) => ({ ...input, selectedIndex: 0 }),
   states: {
-    idle: {}
+    idle: {
+      on: {
+        "key.press": {
+          actions: ["assign navigation"]
+        }
+      }
+    }
   }
 })
