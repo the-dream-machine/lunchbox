@@ -6,6 +6,10 @@ A TUI process manager built with OpenTUI and XState.
 
 - Use mise to run scripts
 
+## Explanations
+
+Your explanations should be as simple as possible without losing any information, and should use examples, references, and code snippets from the files where possible.
+
 ## xstate state machines
 
 ### Guidelines
